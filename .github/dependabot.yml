@@ -1,0 +1,232 @@
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      timezone: Europe/Zurich
+      time: "01:30"
+    labels:
+      - dependencies/github-actions
+
+  # Docker
+  - package-ecosystem: docker
+    directory: /src
+    schedule:
+      interval: daily
+      timezone: Europe/Zurich
+      time: "04:00"
+    labels:
+      - dependencies/containers
+
+  # .NET SDK
+  - package-ecosystem: dotnet-sdk
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      timezone: Europe/Zurich
+      time: "02:00"
+    labels:
+      - dependencies/dotnet-sdk
+    groups:
+      dotnet-next:
+        update-types:
+          - major
+          - minor
+      dotnet-updates:
+        update-types:
+          - patch
+
+  # NuGet
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: daily
+      timezone: Europe/Zurich
+      time: "03:00"
+    labels:
+      - dependencies/nuget
+    groups:
+      # Versioning
+      versioning-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Asp.Versioning.*"
+      versioning-next:
+        update-types:
+          - major
+        patterns:
+          - "Asp.Versioning.*"
+
+      # Aspire
+      aspire-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Aspire"
+          - "Aspire.*"
+      aspire-next:
+        update-types:
+          - major
+        patterns:
+          - "Aspire"
+          - "Aspire.*"
+
+      # .NET with Packages that start with Microsoft namespace
+      dotnet-microsoft-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Microsoft.*"
+        exclude-patterns:
+          - "Microsoft.CodeAnalysis.PublicApiAnalyzers"
+          - "Microsoft.Extensions.Diagnostics.ResourceMonitoring"
+          - "Microsoft.Extensions.Http.Resilience"
+          - "Microsoft.Extensions.ServiceDiscovery"
+          - "Microsoft.IdentityModel.Protocols.OpenIdConnect"
+          - "Microsoft.Kiota.*"
+          - "Microsoft.NET.Test.Sdk"
+          - "Microsoft.Orleans.*"
+          - "Microsoft.Sbom.Targets"
+          - "Microsoft.SourceLink.GitHub"
+      dotnet-microsoft-next:
+        update-types:
+          - major
+        patterns:
+          - "Microsoft.*"
+
+      # .NET with Packages that start with System namespace
+      dotnet-system-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "System"
+          - "System.*"
+      dotnet-system-next:
+        update-types:
+          - major
+        patterns:
+          - "System"
+          - "System.*"
+
+      # Microsoft Orleans
+      orleans-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Microsoft.Orleans.*"
+      orleans-next:
+        update-types:
+          - major
+        patterns:
+          - "Microsoft.Orleans.*"
+
+      # Open Telemetry
+      observability-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "OpenTelemetry.*"
+      observability-next:
+        update-types:
+          - major
+        patterns:
+          - "OpenTelemetry.*"
+
+      # FluentMigrator
+      fluent-migrator-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "FluentMigrator"
+          - "FluentMigrator.*"
+      fluent-migrator-next:
+        update-types:
+          - major
+        patterns:
+          - "FluentMigrator"
+          - "FluentMigrator.*"
+
+      # Npgsql
+      npgsql-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Npgsql"
+          - "Npgsql.*"
+      npgsql-next:
+        update-types:
+          - major
+        patterns:
+          - "Npgsql"
+          - "Npgsql.*"
+
+      # Spectre
+      spectre-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Spectre.Console.Cli"
+          - "Spectre.Console.Cli.*"
+      spectre-next:
+        update-types:
+          - major
+        patterns:
+          - "Spectre.Console.Cli"
+          - "Spectre.Console.Cli.*"
+
+      # Swashbuckle
+      swashbuckle-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Swashbuckle.AspNetCore"
+          - "Swashbuckle.AspNetCore.*"
+      swashbuckle-next:
+        update-types:
+          - major
+        patterns:
+          - "Swashbuckle.AspNetCore"
+          - "Swashbuckle.AspNetCore.*"
+
+      # Temporal
+      temporal-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "Temporalio"
+          - "Temporalio.*"
+      temporal-next:
+        update-types:
+          - major
+        patterns:
+          - "Temporalio"
+          - "Temporalio.*"
+
+      # xunit
+      xunit-updates:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "xunit.*"
+      xunit-next:
+        update-types:
+          - major
+        patterns:
+          - "xunit.*"
