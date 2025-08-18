@@ -2,3 +2,7 @@
 ; This file overrides default settings supplied by NuGet packages.
 is_global = true
 global_level = 0
+
+dotnet_diagnostic.IDE0130.severity = none
+
+dotnet_diagnostic.SA1135.severity = none

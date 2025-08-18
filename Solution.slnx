@@ -1,6 +1,8 @@
 <Solution>
-  <Folder Name="/docs/"/>
-  <Folder Name="/eng/"/>
-  <Folder Name="/src/"/>
-  <Folder Name="/test/"/>
+  <Folder Name="/docs/" />
+  <Folder Name="/eng/" />
+  <Folder Name="/src/">
+    <Project Path="src\Workflows\Escendit.Extensions.Workflows.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/test/" />
 </Solution>

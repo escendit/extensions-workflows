@@ -20,6 +20,9 @@ resharper_space_after_last_attribute = false
 attribute_style = first_attribute_on_single_line
 attribute_indent = align_by_first_attribute
 
+resharper_check_namespace_highlighting = none
+resharper_member_can_be_private_global_highlighting = none
+
 [*.cs]
 charset = utf-8-bom
 

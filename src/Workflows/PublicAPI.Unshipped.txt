@@ -1,0 +1,13 @@
+const Microsoft.Extensions.DependencyInjection.TemporalDefaults.ClientNamespace = "default" -> string!
+const Microsoft.Extensions.DependencyInjection.TemporalDefaults.ClientTargetHost = "localhost:7233" -> string!
+Microsoft.Extensions.DependencyInjection.ITemporalBuilder
+Microsoft.Extensions.DependencyInjection.ITemporalBuilder.Name.get -> string!
+Microsoft.Extensions.DependencyInjection.ITemporalBuilder.Services.get -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
+Microsoft.Extensions.DependencyInjection.TemporalBuilderExtensions
+Microsoft.Extensions.DependencyInjection.TemporalDefaults
+static Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTemporalClient(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string! taskQueue, string? clientTargetHost = null, string? clientNamespace = null) -> Microsoft.Extensions.Options.OptionsBuilder<Temporalio.Client.TemporalClientConnectOptions!>!
+static Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTemporalHostedService(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string! taskQueue, string! clientTargetHost = "localhost:7233", string! clientNamespace = "default", string? buildId = null) -> Microsoft.Extensions.DependencyInjection.ITemporalBuilder!
+static Microsoft.Extensions.DependencyInjection.TemporalBuilderExtensions.ConfigureClientOptions(this Microsoft.Extensions.DependencyInjection.ITemporalBuilder! temporalBuilder, System.Action<Microsoft.Extensions.Options.OptionsBuilder<Temporalio.Client.TemporalClientConnectOptions!>!>! configureOptions) -> Microsoft.Extensions.DependencyInjection.ITemporalBuilder!
+static Microsoft.Extensions.DependencyInjection.TemporalBuilderExtensions.ConfigureClientOptions(this Microsoft.Extensions.DependencyInjection.ITemporalBuilder! temporalBuilder, System.Action<Temporalio.Client.TemporalClientConnectOptions!>! configureOptions) -> Microsoft.Extensions.DependencyInjection.ITemporalBuilder!
+static Microsoft.Extensions.DependencyInjection.TemporalBuilderExtensions.ConfigureWorkerOptions(this Microsoft.Extensions.DependencyInjection.ITemporalBuilder! temporalBuilder, System.Action<Temporalio.Extensions.Hosting.ITemporalWorkerServiceOptionsBuilder!>! configureOptions) -> Microsoft.Extensions.DependencyInjection.ITemporalBuilder!

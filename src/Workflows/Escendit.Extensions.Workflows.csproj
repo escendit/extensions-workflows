@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Temporalio.Extensions.Hosting"/>
+    <PackageReference Include="Temporalio.Extensions.OpenTelemetry"/>
+  </ItemGroup>
+</Project>
