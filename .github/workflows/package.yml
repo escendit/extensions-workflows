@@ -67,7 +67,7 @@ jobs:
           path: "**/test-results*.trx"
 
       - name: Pack .NET Solution
-        run: dotnet pack --configuration Release --no-build --output pack/
+        run: dotnet pack --configuration Release --no-build --output pack/ /p:PackageVersion=${VERSION}
         if: ${{ github.event_name == 'release' && github.event.action == 'published' }}
 
       - name: Publish .NET Solution to GitHub Packages
