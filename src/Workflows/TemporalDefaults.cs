@@ -9,12 +9,12 @@ namespace Microsoft.Extensions.DependencyInjection;
 public static class TemporalDefaults
 {
     /// <summary>
-    /// Default Host.
+    /// Default Host & Port.
     /// </summary>
     public const string ClientTargetHost = "localhost:7233";
 
     /// <summary>
-    /// Default Port.
+    /// Default Namespace.
     /// </summary>
     public const string ClientNamespace = "default";
 }
