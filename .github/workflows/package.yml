@@ -18,6 +18,10 @@ env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_NOLOGO: true
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     name: Build
