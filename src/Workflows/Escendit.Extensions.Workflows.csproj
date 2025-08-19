@@ -3,4 +3,10 @@
     <PackageReference Include="Temporalio.Extensions.Hosting"/>
     <PackageReference Include="Temporalio.Extensions.OpenTelemetry"/>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>true</Pack>
+      <PackagePath/>
+    </None>
+  </ItemGroup>
 </Project>
