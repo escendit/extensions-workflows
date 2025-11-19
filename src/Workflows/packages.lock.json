@@ -25,9 +25,9 @@
       },
       "Meziantou.Analyzer": {
         "type": "Direct",
-        "requested": "[2.0.212, )",
-        "resolved": "2.0.212",
-        "contentHash": "U91ktjjTRTccUs3Lk+hrLD9vW+2+lhnsOf4G1GpRSJi1pLn3uK5CU6wGP9Bmz1KlJs6Oz1GGoMhxQBoqQsmAuQ=="
+        "requested": "[2.0.254, )",
+        "resolved": "2.0.254",
+        "contentHash": "w89TCqrX1zguqRa/+6M8SfY+WxvBGkvXexUTfpQBfLsFAnW02Lrbwog+AsTRcqy+/RQmOqT2PQ1HoIhMBL18vA=="
       },
       "Microsoft.CodeAnalysis.PublicApiAnalyzers": {
         "type": "Direct",
