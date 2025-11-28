@@ -60,7 +60,7 @@ jobs:
       - name: Test .NET Solution
         run: dotnet test --configuration Release --no-build --filter="Category=UnitTest|Category=IntegrationTest" --logger "trx;LogFilePrefix=test-results"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: success() || failure()
         with:
           name: test-results
@@ -76,7 +76,7 @@ jobs:
         if: ${{ github.event_name == 'release' && github.event.action == 'published' }}
 
       - name: Store .NET Package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: nuget
           if-no-files-found: error
