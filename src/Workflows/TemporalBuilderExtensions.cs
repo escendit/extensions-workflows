@@ -13,49 +13,49 @@ using Temporalio.Extensions.Hosting;
 public static class TemporalBuilderExtensions
 {
     /// <summary>
-    /// Configure Client Options.
+    /// Provides extension methods for configuring an <see cref="ITemporalBuilder"/> instance.
     /// </summary>
-    /// <param name="temporalBuilder">The initial temporal migrator builder.</param>
-    /// <param name="configureOptions">The configure client options.</param>
-    /// <returns>The updated temporal migrator builder.</returns>
-    public static ITemporalBuilder ConfigureClientOptions(
-        this ITemporalBuilder temporalBuilder,
-        Action<OptionsBuilder<TemporalClientConnectOptions>> configureOptions)
+    extension(ITemporalBuilder temporalBuilder)
     {
-        ArgumentNullException.ThrowIfNull(temporalBuilder);
-        ArgumentNullException.ThrowIfNull(configureOptions);
-        configureOptions.Invoke(temporalBuilder.ClientOptionsBuilder);
-        return temporalBuilder;
-    }
+        /// <summary>
+        /// Configure Client Options.
+        /// </summary>
+        /// <param name="configureOptions">The configure client options.</param>
+        /// <returns>The updated temporal migrator builder.</returns>
+        public ITemporalBuilder ConfigureClientOptions(
+            Action<OptionsBuilder<TemporalClientConnectOptions>> configureOptions)
+        {
+            ArgumentNullException.ThrowIfNull(temporalBuilder);
+            ArgumentNullException.ThrowIfNull(configureOptions);
+            configureOptions.Invoke(temporalBuilder.ClientOptionsBuilder);
+            return temporalBuilder;
+        }
 
-    /// <summary>
-    /// Configure Client Options.
-    /// </summary>
-    /// <param name="temporalBuilder">The initial temporal migrator builder.</param>
-    /// <param name="configureOptions">The configure client options.</param>
-    /// <returns>The updated temporal migrator builder.</returns>
-    public static ITemporalBuilder ConfigureClientOptions(
-        this ITemporalBuilder temporalBuilder,
-        Action<TemporalClientConnectOptions> configureOptions)
-    {
-        ArgumentNullException.ThrowIfNull(temporalBuilder);
-        ArgumentNullException.ThrowIfNull(configureOptions);
-        return ConfigureClientOptions(temporalBuilder, builder => builder.Configure(configureOptions));
-    }
+        /// <summary>
+        /// Configure Client Options.
+        /// </summary>
+        /// <param name="configureOptions">The configure client options.</param>
+        /// <returns>The updated temporal migrator builder.</returns>
+        public ITemporalBuilder ConfigureClientOptions(
+            Action<TemporalClientConnectOptions> configureOptions)
+        {
+            ArgumentNullException.ThrowIfNull(temporalBuilder);
+            ArgumentNullException.ThrowIfNull(configureOptions);
+            return ConfigureClientOptions(temporalBuilder, builder => builder.Configure(configureOptions));
+        }
 
-    /// <summary>
-    /// Configure Worker Options.
-    /// </summary>
-    /// <param name="temporalBuilder">The initial temporal migrator builder.</param>
-    /// <param name="configureOptions">The configure options.</param>
-    /// <returns>The updated temporal migrator builder.</returns>
-    public static ITemporalBuilder ConfigureWorkerOptions(
-        this ITemporalBuilder temporalBuilder,
-        Action<ITemporalWorkerServiceOptionsBuilder> configureOptions)
-    {
-        ArgumentNullException.ThrowIfNull(temporalBuilder);
-        ArgumentNullException.ThrowIfNull(configureOptions);
-        configureOptions.Invoke(temporalBuilder.WorkerOptionsBuilder);
-        return temporalBuilder;
+        /// <summary>
+        /// Configure Worker Options.
+        /// </summary>
+        /// <param name="configureOptions">The configure options.</param>
+        /// <returns>The updated temporal migrator builder.</returns>
+        public ITemporalBuilder ConfigureWorkerOptions(
+            Action<ITemporalWorkerServiceOptionsBuilder> configureOptions)
+        {
+            ArgumentNullException.ThrowIfNull(temporalBuilder);
+            ArgumentNullException.ThrowIfNull(configureOptions);
+            configureOptions.Invoke(temporalBuilder.WorkerOptionsBuilder);
+            return temporalBuilder;
+        }
     }
 }
