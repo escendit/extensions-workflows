@@ -31,6 +31,7 @@ public static class ServiceCollectionExtensions
         /// <param name="clientTargetHost">The client target host.</param>
         /// <param name="clientNamespace">The client namespace.</param>
         /// <param name="buildId">The build id.</param>
+        /// <param name="disallowDuplicates">Whether to disallow duplicate registrations.</param>
         /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
         public ITemporalBuilder AddTemporalHostedService(
             string name,
