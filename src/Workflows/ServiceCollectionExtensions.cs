@@ -31,12 +31,14 @@ public static class ServiceCollectionExtensions
         /// <param name="clientTargetHost">The client target host.</param>
         /// <param name="clientNamespace">The client namespace.</param>
         /// <param name="buildId">The build id.</param>
+        /// <param name="disallowDuplicates">Whether to disallow duplicate registrations.</param>
         /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
         public ITemporalBuilder AddTemporalHostedService(
             string name,
             string clientTargetHost = TemporalDefaults.ClientTargetHost,
             string clientNamespace = TemporalDefaults.ClientNamespace,
-            string? buildId = null)
+            string? buildId = null,
+            bool disallowDuplicates = false)
         {
             ArgumentNullException.ThrowIfNull(services);
             ArgumentNullException.ThrowIfNull(name);
@@ -49,15 +51,21 @@ public static class ServiceCollectionExtensions
                     options.Interceptors = [new TracingInterceptor()];
                 });
 
-            var workerOptionsBuilder = services
-                .AddHostedTemporalWorker(clientTargetHost, clientNamespace, name, new WorkerDeploymentOptions
+            var deploymentOptions = buildId is null
+                ? null
+                : new WorkerDeploymentOptions
                 {
-                    UseWorkerVersioning = buildId is not null,
+                    UseWorkerVersioning = true,
                     DefaultVersioningBehavior = VersioningBehavior.Unspecified,
-                    Version = buildId is null
-                        ? null
-                        : new WorkerDeploymentVersion(name, buildId),
-                })
+                    Version = new WorkerDeploymentVersion(name, buildId),
+                };
+
+            var workerOptionsBuilder = services
+                .AddHostedTemporalWorker(
+                    clientTargetHost,
+                    clientNamespace,
+                    name,
+                    deploymentOptions)
                 .ConfigureOptions(
                     options =>
                     {
@@ -73,7 +81,7 @@ public static class ServiceCollectionExtensions
                         options.ClientOptions.DataConverter = new DataConverter(new DefaultPayloadConverter(serializerOptions), new DefaultFailureConverter());
                         options.ClientOptions.Interceptors = [new TracingInterceptor()];
                     },
-                    disallowDuplicates: true);
+                    disallowDuplicates);
 
             return new TemporalBuilder(name, services, clientOptionsBuilder, workerOptionsBuilder);
         }
