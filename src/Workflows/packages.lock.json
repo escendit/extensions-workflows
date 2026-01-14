@@ -58,22 +58,22 @@
       },
       "Temporalio.Extensions.Hosting": {
         "type": "Direct",
-        "requested": "[1.9.0, )",
-        "resolved": "1.9.0",
-        "contentHash": "jN9Y1htuM1TnjwcFP3OgH8FTCHJgubWrWB9jMe/Muyaz11qnguxxWrJrMo6I15uQPYTQ2AJ3lLxJ5w+zSOwGlA==",
+        "requested": "[1.10.0, )",
+        "resolved": "1.10.0",
+        "contentHash": "MwOsyQeOBsKIpMDrhPL1IFAUU0F61FMGKoCIaHlaE4Gv5agNQJxQ63IW9c6S8qT94rTxB8gQ3efQ6mNgzNSsOA==",
         "dependencies": {
           "Microsoft.Extensions.Hosting": "8.0.1",
-          "Temporalio": "1.9.0"
+          "Temporalio": "1.10.0"
         }
       },
       "Temporalio.Extensions.OpenTelemetry": {
         "type": "Direct",
-        "requested": "[1.9.0, )",
-        "resolved": "1.9.0",
-        "contentHash": "7KfqCB0oxxLAF72AxEJDXCLWPZKF2ofwjiHBHgx9P1IXn+dQAWlbMXWvPm4ESIm+RwcJQCn35d7fgpCOhRY2ug==",
+        "requested": "[1.10.0, )",
+        "resolved": "1.10.0",
+        "contentHash": "i/nsC5ZSZwEG0xvJavKTZWcIWtlIob8zT7hXeFq052X7lJa6+qdfvIlWddOK6Atm67c9QiQqHCeFthhmlJkyow==",
         "dependencies": {
           "OpenTelemetry.Api": "1.4.0",
-          "Temporalio": "1.9.0"
+          "Temporalio": "1.10.0"
         }
       },
       "Google.Protobuf": {
@@ -382,8 +382,8 @@
       "Temporalio": {
         "type": "CentralTransitive",
         "requested": "[1.9.0, )",
-        "resolved": "1.9.0",
-        "contentHash": "BysoHnmFOPSNwkvqlDjdUdXhqt8s/qEBYFGY1kF0Jr74pkuHvfpHBqyBhWrZ02X2qTPYAwkfRqicug765L8sCw==",
+        "resolved": "1.10.0",
+        "contentHash": "K99UKVdTx7MSt2l74ufEITqaI+bs2HIv1YUtbjTQq/OCZsYAOTFY6fj65rJ0Xv3vYBNu1BarGQd7KkkH+jPEWg==",
         "dependencies": {
           "Google.Protobuf": "3.26.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
